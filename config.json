@@ -1,0 +1,8 @@
+{
+  "nota": "Impostazioni lette dalla pagina di anteprima e da strumenti/build_embed.py. webhook vuoto = modalità prova: i dati finiscono nella console e non parte nulla.",
+  "webhook": "",
+  "privacy_url": "https://www.mariateresamedici.com/privacy-policy-2/",
+  "min_secondi": 60,
+  "audio_base": "audio/",
+  "audio_urls": {}
+}

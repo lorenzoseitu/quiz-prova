@@ -1,0 +1,292 @@
+{
+  "versione": "2026.10-bozza1",
+  "nota": "Banca domande del quiz di livello. Unica fonte di verità: pagina, audio e documento di revisione si generano da qui. Nelle domande a scelta la risposta giusta è sempre la prima dell'elenco (corretta: 0): la pagina mescola le opzioni a ogni sessione.",
+  "testi": {
+    "A1-L": "Ciao! Mi chiamo Paolo e ho trent'anni. Abito a Bologna con mia moglie Sara. Lavoro in un ristorante: faccio il cuoco. Il lunedì non lavoro e vado al parco con il mio cane.",
+    "A2-L": "Cara Giulia, sabato scorso sono andata a Firenze con Marta. Abbiamo preso il treno delle otto e siamo arrivate alle dieci. La mattina abbiamo visitato il Duomo, poi abbiamo mangiato una pizza in centro. Nel pomeriggio ha piovuto, così siamo entrate in un museo. Siamo tornate a casa stanche ma contente. A presto, Elena",
+    "B1-L": "Da quando lavoro da casa, la mia giornata è cambiata. Prima passavo quasi due ore al giorno in macchina e arrivavo in ufficio già stanco. Ora mi sveglio più tardi e riesco anche a fare colazione con calma. C'è però un lato negativo: mi mancano i colleghi e le chiacchiere alla macchinetta del caffè. Per questo ho deciso di andare in ufficio almeno un giorno alla settimana.",
+    "B2-L": "Negli ultimi anni molti piccoli comuni italiani hanno messo in vendita case abbandonate al prezzo simbolico di un euro. L'obiettivo è ripopolare borghi che rischiano di scomparire. Chi compra, però, si impegna a ristrutturare l'immobile entro tre anni, con costi che superano spesso i trentamila euro. Nonostante le difficoltà burocratiche, l'iniziativa ha attirato acquirenti da tutto il mondo e in alcuni paesi sono già nate nuove attività commerciali.",
+    "C1-L": "Diversi studiosi sostengono che i ricordi collettivi non siano archivi fedeli, ma narrazioni costantemente rielaborate in funzione delle esigenze del presente. Ogni generazione seleziona gli episodi che ne confermano l'identità e lascia sbiadire quelli scomodi. Ne consegue che la memoria pubblica, per quanto si richiami ai fatti, finisce per dirci più su chi ricorda che su ciò che è accaduto.",
+    "C2-L": "La prosa di Gadda mescola registri diversi: dal dialetto al latino, dal tecnicismo scientifico al turpiloquio. Questo impasto, lungi dall'essere un vezzo, traduce sulla pagina una visione del reale come groviglio inestricabile di cause, in cui nessun fatto è spiegabile isolatamente. Di qui l'effetto straniante: il lettore, privato di una voce narrante univoca, è costretto a sbrogliare da sé la matassa."
+  },
+  "audio": {
+    "prova": {
+      "file": "prova-audio.mp3",
+      "velocita": 0.9,
+      "copione": [
+        { "voce": "F", "testo": "Ciao! Questa è una prova audio. Se senti bene la mia voce, possiamo cominciare." }
+      ]
+    },
+    "A1-A1": {
+      "file": "a1-dialogo.mp3",
+      "velocita": 0.8,
+      "copione": [
+        { "voce": "F", "testo": "Buongiorno! Cosa prende?" },
+        { "voce": "M", "testo": "Un cappuccino e un cornetto, per favore." },
+        { "voce": "F", "testo": "Ecco a Lei. Sono due euro e cinquanta." },
+        { "voce": "M", "testo": "Grazie!" }
+      ]
+    },
+    "A1-A2": {
+      "file": "a1-dettato.mp3",
+      "velocita": 0.8,
+      "copione": [
+        { "voce": "F", "testo": "Oggi vado al mare con Maria." }
+      ]
+    },
+    "A2-A1": {
+      "file": "a2-messaggio.mp3",
+      "velocita": 0.85,
+      "copione": [
+        { "voce": "F", "testo": "Ciao Luca, sono Francesca. Stasera non posso venire a cena perché devo lavorare fino a tardi. Possiamo vederci domani a pranzo? Fammi sapere. Ciao!" }
+      ]
+    },
+    "A2-A2": {
+      "file": "a2-dettato.mp3",
+      "velocita": 0.85,
+      "copione": [
+        { "voce": "M", "testo": "Ieri sera abbiamo mangiato una pizza molto buona." }
+      ]
+    },
+    "B1-A1": {
+      "file": "b1-annuncio.mp3",
+      "velocita": 0.92,
+      "copione": [
+        { "voce": "F", "testo": "Il treno regionale per Milano Centrale delle otto e trenta viaggia con venti minuti di ritardo a causa di un guasto sulla linea. Il treno partirà dal binario sei anziché dal binario quattro. Ci scusiamo per il disagio." }
+      ]
+    },
+    "B1-A2": {
+      "file": "b1-dettato.mp3",
+      "velocita": 0.92,
+      "copione": [
+        { "voce": "M", "testo": "Mi piacerebbe visitare la Sicilia l'estate prossima." }
+      ]
+    },
+    "B2-A1": {
+      "file": "b2-intervista.mp3",
+      "velocita": 1.0,
+      "copione": [
+        { "voce": "M", "testo": "Lei ha lasciato un posto fisso in banca per aprire un agriturismo. Non ha avuto paura?" },
+        { "voce": "F", "testo": "Certo che ne ho avuta. Però, più che il rischio economico, mi spaventava l'idea di ritrovarmi a sessant'anni piena di rimpianti. I primi due anni sono stati durissimi, ma oggi non tornerei indietro." }
+      ]
+    },
+    "B2-A2": {
+      "file": "b2-dettato.mp3",
+      "velocita": 1.0,
+      "copione": [
+        { "voce": "F", "testo": "Nonostante la pioggia, siamo usciti lo stesso." }
+      ]
+    },
+    "C1-A1": {
+      "file": "c1-monologo.mp3",
+      "velocita": 1.0,
+      "copione": [
+        { "voce": "M", "testo": "Si dice spesso che gli italiani leggano poco. I dati, a dire il vero, raccontano una storia più sfumata: i lettori forti, quelli che leggono almeno un libro al mese, sono rimasti stabili. A crollare è stata la fascia di chi leggeva saltuariamente, magari un paio di titoli l'anno sotto l'ombrellone. Più che di un paese che non legge, dunque, dovremmo parlare di un paese spaccato in due." }
+      ]
+    },
+    "C1-A2": {
+      "file": "c1-dettato.mp3",
+      "velocita": 1.0,
+      "copione": [
+        { "voce": "F", "testo": "Qualora ci fossero problemi, non esiti a contattarmi." }
+      ]
+    },
+    "C2-A1": {
+      "file": "c2-monologo.mp3",
+      "velocita": 1.1,
+      "copione": [
+        { "voce": "F", "testo": "Ah, guarda, il nuovo direttore è un genio, non c'è che dire. In tre mesi è riuscito là dove nessuno prima di lui aveva osato: ha fatto scappare metà del personale e ha dimezzato il fatturato. Se continua di questo passo, entro Natale ci toccherà pure fargli un monumento." }
+      ]
+    },
+    "C2-A2": {
+      "file": "c2-dettato.mp3",
+      "velocita": 1.1,
+      "copione": [
+        { "voce": "M", "testo": "Ammesso e non concesso che abbia ragione, resta il problema dei costi." }
+      ]
+    }
+  },
+  "instradamento": [
+    { "id": "R1", "livello": "A1", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Io ___ di Londra.",
+      "opzioni": ["sono", "sei", "è", "ha"], "corretta": 0 },
+    { "id": "R2", "livello": "A2", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Ho mal di denti: devo andare dal ___.",
+      "opzioni": ["dentista", "macellaio", "postino", "cameriere"], "corretta": 0 },
+    { "id": "R3", "livello": "B1", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Se domani ___ bel tempo, andremo al mare.",
+      "opzioni": ["farà", "facesse", "ha fatto", "faceva"], "corretta": 0 },
+    { "id": "R4", "livello": "B1", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Non trovo lavoro da mesi: sono ___.",
+      "opzioni": ["disoccupato", "pensionato", "impiegato", "occupato"], "corretta": 0 },
+    { "id": "R5", "livello": "B2", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Pensavo che tu ___ già partito.",
+      "opzioni": ["fossi", "sia", "sei", "sarai"], "corretta": 0 },
+    { "id": "R6", "livello": "C1", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+      "domanda": "Il ministro ha dato una risposta evasiva: ha preferito ___.",
+      "opzioni": ["tergiversare", "ribadire", "sottolineare", "ammettere"], "corretta": 0 }
+  ],
+  "blocchi": {
+    "A1": [
+      { "id": "A1-G1", "livello": "A1", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Mia sorella ___ molto gentile.",
+        "opzioni": ["è", "sei", "sono", "siete"], "corretta": 0 },
+      { "id": "A1-G2", "livello": "A1", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Quanti anni ha tuo fratello?",
+        "soluzione": ["quanti", "anni", "ha", "tuo", "fratello"],
+        "accettate": [["tuo", "fratello", "quanti", "anni", "ha"]] },
+      { "id": "A1-V1", "livello": "A1", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Ho fame: voglio ___.",
+        "opzioni": ["mangiare", "dormire", "bere", "correre"], "corretta": 0 },
+      { "id": "A1-V2", "livello": "A1", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["lunedì", "un giorno"], ["marzo", "un mese"], ["rosso", "un colore"]] },
+      { "id": "A1-L1", "livello": "A1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "A1-L",
+        "domanda": "Che lavoro fa Paolo?",
+        "opzioni": ["Il cuoco", "Il cameriere", "L'insegnante", "Il medico"], "corretta": 0 },
+      { "id": "A1-L2", "livello": "A1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "A1-L",
+        "domanda": "Che cosa fa Paolo il lunedì?",
+        "opzioni": ["Va al parco", "Lavora al ristorante", "Va a Bologna", "Resta a casa con Sara"], "corretta": 0 },
+      { "id": "A1-A1", "livello": "A1", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "A1-A1",
+        "domanda": "Quanto paga il cliente?",
+        "opzioni": ["2,50 €", "2,15 €", "1,50 €", "12,50 €"], "corretta": 0 },
+      { "id": "A1-A2", "livello": "A1", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "A1-A2",
+        "frase": "Oggi vado al mare con Maria.",
+        "soluzione": ["oggi", "vado", "al", "mare", "con", "Maria"],
+        "distrattori": ["domani", "Marco"] }
+    ],
+    "A2": [
+      { "id": "A2-G1", "livello": "A2", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Ieri ___ al cinema con i miei amici.",
+        "opzioni": ["sono andato", "andavo", "vado", "andrò"], "corretta": 0 },
+      { "id": "A2-G2", "livello": "A2", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Mi sono svegliato tardi stamattina.",
+        "soluzione": ["mi", "sono", "svegliato", "tardi", "stamattina"],
+        "accettate": [["stamattina", "mi", "sono", "svegliato", "tardi"]] },
+      { "id": "A2-V1", "livello": "A2", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Fa freddo: mettiti il ___.",
+        "opzioni": ["cappotto", "costume", "ventaglio", "portafoglio"], "corretta": 0 },
+      { "id": "A2-V2", "livello": "A2", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["farmacia", "medicine"], ["panetteria", "pane"], ["edicola", "giornali"]] },
+      { "id": "A2-L1", "livello": "A2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "A2-L",
+        "domanda": "Come sono andate a Firenze Elena e Marta?",
+        "opzioni": ["In treno", "In macchina", "In autobus", "In aereo"], "corretta": 0 },
+      { "id": "A2-L2", "livello": "A2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "A2-L",
+        "domanda": "Perché sono entrate in un museo?",
+        "opzioni": ["Perché pioveva", "Perché erano stanche", "Perché il Duomo era chiuso", "Perché avevano fame"], "corretta": 0 },
+      { "id": "A2-A1", "livello": "A2", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "A2-A1",
+        "domanda": "Perché Francesca non va a cena stasera?",
+        "opzioni": ["Deve lavorare", "È malata", "Ha un altro appuntamento", "Non ha la macchina"], "corretta": 0 },
+      { "id": "A2-A2", "livello": "A2", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "A2-A2",
+        "frase": "Ieri sera abbiamo mangiato una pizza molto buona.",
+        "soluzione": ["ieri", "sera", "abbiamo", "mangiato", "una", "pizza", "molto", "buona"],
+        "distrattori": ["stasera", "mangiamo"] }
+    ],
+    "B1": [
+      { "id": "B1-G1", "livello": "B1", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Quando ero piccolo, ___ spesso in campagna dai nonni.",
+        "opzioni": ["andavo", "sono andato", "andrei", "andrò"], "corretta": 0 },
+      { "id": "B1-G2", "livello": "B1", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Te lo porto domani mattina.",
+        "soluzione": ["te", "lo", "porto", "domani", "mattina"],
+        "accettate": [["domani", "mattina", "te", "lo", "porto"]] },
+      { "id": "B1-V1", "livello": "B1", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Cosa significa «rimandare» un appuntamento?",
+        "opzioni": ["Spostarlo a un altro giorno", "Annullarlo per sempre", "Arrivare in anticipo", "Dimenticarlo"], "corretta": 0 },
+      { "id": "B1-V2", "livello": "B1", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["affitto", "soldi che paghi ogni mese per la casa"], ["stipendio", "soldi che ricevi per il tuo lavoro"], ["bolletta", "conto della luce o del gas"]] },
+      { "id": "B1-L1", "livello": "B1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "B1-L",
+        "domanda": "Qual è il vantaggio principale del lavoro da casa per chi scrive?",
+        "opzioni": ["Non perde più tempo in macchina", "Guadagna di più", "Lavora meno ore", "Vede più spesso i colleghi"], "corretta": 0 },
+      { "id": "B1-L2", "livello": "B1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "B1-L",
+        "domanda": "Perché ha deciso di andare in ufficio una volta alla settimana?",
+        "opzioni": ["Perché sente la mancanza dei colleghi", "Perché a casa non riesce a concentrarsi", "Perché il capo glielo ha chiesto", "Perché deve usare la macchina"], "corretta": 0 },
+      { "id": "B1-A1", "livello": "B1", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "B1-A1",
+        "domanda": "Da quale binario parte il treno?",
+        "opzioni": ["Dal binario 6", "Dal binario 4", "Dal binario 8", "Dal binario 20"], "corretta": 0 },
+      { "id": "B1-A2", "livello": "B1", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "B1-A2",
+        "frase": "Mi piacerebbe visitare la Sicilia l'estate prossima.",
+        "soluzione": ["mi", "piacerebbe", "visitare", "la", "Sicilia", "l'estate", "prossima"],
+        "distrattori": ["piace", "scorsa"] }
+    ],
+    "B2": [
+      { "id": "B2-G1", "livello": "B2", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "È importante che tutti ___ le regole.",
+        "opzioni": ["rispettino", "rispettano", "rispetteranno", "rispettassero"], "corretta": 0 },
+      { "id": "B2-G2", "livello": "B2", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Se l'avessi saputo, te l'avrei detto.",
+        "soluzione": ["se", "l'avessi", "saputo", "te", "l'avrei", "detto"],
+        "accettate": [["te", "l'avrei", "detto", "se", "l'avessi", "saputo"]] },
+      { "id": "B2-V1", "livello": "B2", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Cosa significa «esasperato»?",
+        "opzioni": ["Estremamente infastidito", "Molto contento", "Leggermente preoccupato", "Completamente indifferente"], "corretta": 0 },
+      { "id": "B2-V2", "livello": "B2", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["rinunciare", "decidere di non fare qualcosa"], ["sostenere", "affermare un'opinione"], ["trascurare", "non dare la giusta attenzione"]] },
+      { "id": "B2-L1", "livello": "B2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "B2-L",
+        "domanda": "Qual è lo scopo dell'iniziativa?",
+        "opzioni": ["Riportare abitanti nei piccoli centri", "Aumentare il prezzo delle case", "Attirare turisti per brevi periodi", "Ridurre la burocrazia"], "corretta": 0 },
+      { "id": "B2-L2", "livello": "B2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "B2-L",
+        "domanda": "Quale obbligo ha chi acquista?",
+        "opzioni": ["Ristrutturare la casa entro un termine preciso", "Aprire un'attività commerciale", "Viverci per almeno tre anni", "Pagare trentamila euro al comune"], "corretta": 0 },
+      { "id": "B2-A1", "livello": "B2", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "B2-A1",
+        "domanda": "Che cosa temeva di più la donna?",
+        "opzioni": ["Pentirsi di non averci provato", "Perdere tutti i suoi risparmi", "Lavorare troppe ore", "Non trovare clienti"], "corretta": 0 },
+      { "id": "B2-A2", "livello": "B2", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "B2-A2",
+        "frase": "Nonostante la pioggia, siamo usciti lo stesso.",
+        "soluzione": ["nonostante", "la", "pioggia", "siamo", "usciti", "lo", "stesso"],
+        "distrattori": ["piovesse", "comunque"] }
+    ],
+    "C1": [
+      { "id": "C1-G1", "livello": "C1", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Per quanto si ___ impegnato, non riuscì a superare l'esame.",
+        "opzioni": ["fosse", "era", "sia", "sarebbe"], "corretta": 0 },
+      { "id": "C1-G2", "livello": "C1", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Non avrei mai pensato che potesse succedere.",
+        "soluzione": ["non", "avrei", "mai", "pensato", "che", "potesse", "succedere"],
+        "accettate": [["non", "avrei", "pensato", "mai", "che", "potesse", "succedere"]] },
+      { "id": "C1-V1", "livello": "C1", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "«Ha un carattere schivo» significa che è una persona…",
+        "opzioni": ["riservata, che evita di mettersi in mostra", "aggressiva con gli altri", "molto generosa", "spesso distratta"], "corretta": 0 },
+      { "id": "C1-V2", "livello": "C1", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["prendere un granchio", "commettere un errore"], ["avere le mani bucate", "spendere troppo"], ["tagliare la corda", "andarsene di nascosto"]] },
+      { "id": "C1-L1", "livello": "C1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "C1-L",
+        "domanda": "Secondo il testo, che cosa accade ai ricordi collettivi?",
+        "opzioni": ["Vengono adattati ai bisogni di chi li tramanda", "Si conservano intatti nel tempo", "Vengono cancellati dalle nuove generazioni", "Diventano più precisi grazie agli studiosi"], "corretta": 0 },
+      { "id": "C1-L2", "livello": "C1", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "C1-L",
+        "domanda": "Qual è la conclusione dell'autore?",
+        "opzioni": ["La memoria pubblica rivela soprattutto chi la costruisce", "La memoria pubblica è inutile per la storia", "I fatti storici non esistono", "Ogni generazione ricorda meglio della precedente"], "corretta": 0 },
+      { "id": "C1-A1", "livello": "C1", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "C1-A1",
+        "domanda": "Qual è la tesi di chi parla?",
+        "opzioni": ["Sono diminuiti soprattutto i lettori occasionali", "Gli italiani non hanno mai letto così tanto", "I lettori abituali stanno scomparendo", "In Italia si legge solo in vacanza"], "corretta": 0 },
+      { "id": "C1-A2", "livello": "C1", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "C1-A2",
+        "frase": "Qualora ci fossero problemi, non esiti a contattarmi.",
+        "soluzione": ["qualora", "ci", "fossero", "problemi", "non", "esiti", "a", "contattarmi"],
+        "distrattori": ["saranno", "esita"] }
+    ],
+    "C2": [
+      { "id": "C2-G1", "livello": "C2", "abilita": "grammatica", "tipo": "scelta", "stato": "bozza",
+        "domanda": "___ ne dica la critica, il film ha avuto un enorme successo di pubblico.",
+        "opzioni": ["Checché", "Qualunque", "Sebbene", "Malgrado"], "corretta": 0 },
+      { "id": "C2-G2", "livello": "C2", "abilita": "grammatica", "tipo": "riordino", "stato": "bozza",
+        "frase": "Lungi da me l'idea di offenderti.",
+        "soluzione": ["lungi", "da", "me", "l'idea", "di", "offenderti"] },
+      { "id": "C2-V1", "livello": "C2", "abilita": "lessico", "tipo": "scelta", "stato": "bozza",
+        "domanda": "Cosa significa «pervicace»?",
+        "opzioni": ["Ostinatamente determinato", "Facilmente persuadibile", "Tendente alla malinconia", "Privo di opinioni proprie"], "corretta": 0 },
+      { "id": "C2-V2", "livello": "C2", "abilita": "lessico", "tipo": "abbina", "stato": "bozza",
+        "coppie": [["sibillino", "oscuro, ambiguo"], ["pedissequo", "che imita senza originalità"], ["lapalissiano", "ovvio, evidente"]] },
+      { "id": "C2-L1", "livello": "C2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "C2-L",
+        "domanda": "Che funzione ha la mescolanza di registri?",
+        "opzioni": ["Rendere l'idea di una realtà complessa e intrecciata", "Dimostrare la cultura dell'autore", "Rendere il testo più comico", "Imitare il parlato quotidiano"], "corretta": 0 },
+      { "id": "C2-L2", "livello": "C2", "abilita": "lettura", "tipo": "scelta", "stato": "bozza", "testo": "C2-L",
+        "domanda": "Perché il lettore prova un effetto straniante?",
+        "opzioni": ["Perché manca una voce narrante unica che lo guidi", "Perché non conosce il dialetto", "Perché la trama è priva di fatti", "Perché l'autore usa solo termini tecnici"], "corretta": 0 },
+      { "id": "C2-A1", "livello": "C2", "abilita": "ascolto", "tipo": "scelta", "stato": "bozza", "audio": "C2-A1",
+        "domanda": "Che cosa pensa chi parla del nuovo direttore?",
+        "opzioni": ["Che sta gestendo malissimo l'azienda", "Che merita un riconoscimento", "Che ha migliorato i conti", "Che è stato sfortunato"], "corretta": 0 },
+      { "id": "C2-A2", "livello": "C2", "abilita": "ascolto", "tipo": "riordino", "stato": "bozza", "audio": "C2-A2",
+        "frase": "Ammesso e non concesso che abbia ragione, resta il problema dei costi.",
+        "soluzione": ["ammesso", "e", "non", "concesso", "che", "abbia", "ragione", "resta", "il", "problema", "dei", "costi"],
+        "distrattori": ["avesse", "rimane"] }
+    ]
+  }
+}

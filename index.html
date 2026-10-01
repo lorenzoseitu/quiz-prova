@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz di livello — prova</title>
+<!-- Pagina di sviluppo. Sul sito va lo snippet dist/quiz-embed.html, generato da
+     strumenti/build_embed.py e incollato in un widget HTML di Elementor.
+     Parametri: ?lang=it|en per la lingua, ?secondi=0 per togliere il tempo minimo nelle prove. -->
+<style>
+  body{margin:0;background:#E6FDF5;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1A1A2E}
+  .anteprima{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+  .striscia{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5A5A6E;margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="anteprima">
+  <p class="striscia">Versione di prova · non invia dati e non manda email</p>
+  <div id="mtm-quiz"></div>
+</div>
+<script src="punteggio.js"></script>
+<script src="quiz.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var carica = function (f, tipo) { return fetch(f, { cache: 'no-store' }).then(function (r) { return tipo === 'json' ? r.json() : r.text(); }); };
+  Promise.all([carica('domande.json', 'json'), carica('i18n.json', 'json'), carica('quiz.css', 'text'), carica('config.json', 'json')])
+    .then(function (v) {
+      var cfg = v[3];
+      if (q.has('secondi')) cfg.min_secondi = Number(q.get('secondi'));
+      window.quiz = MTMQuiz.mount(document.getElementById('mtm-quiz'), {
+        domande: v[0], i18n: v[1], css: v[2], cfg: cfg,
+        lang: q.get('lang') || ((navigator.language || '').slice(0, 2) === 'it' ? 'it' : 'en')
+      });
+    });
+})();
+</script>
+</body>
+</html>

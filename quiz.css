@@ -1,0 +1,144 @@
+/* Quiz di livello — stile. Vive dentro uno Shadow DOM: niente eredita dal tema WordPress
+   e niente esce verso la pagina. Colori e font dal design system di Maria
+   (Maria/Grafiche/design-system-mariateresa-medici.md): solo Helvetica, arancio su un solo
+   elemento per schermata (il pulsante principale), inchiostro su menta o bianco. */
+:host{
+  all:initial;
+  display:block;
+  --menta:#9FEFD9;
+  --menta-chiaro:#E6FDF5;
+  --menta-bordo:#7ADFC4;
+  --arancio:#F04102;
+  --blu:#5471FF;
+  --bianco:#FFFFFF;
+  --inchiostro:#1A1A2E;
+  --grigio:#5A5A6E;
+  --linea:#E4E4EE;
+  --crema:#FFFBF0;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color:var(--inchiostro);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+button,input{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none;text-align:left}
+[hidden]{display:none !important}
+
+.q{max-width:680px;margin:0 auto;padding:8px 0 24px}
+.card{background:var(--bianco);border:1px solid var(--linea);border-radius:22px;padding:32px 30px;box-shadow:0 22px 50px -34px rgba(26,26,46,.45)}
+.card.scura{background:var(--inchiostro);color:var(--bianco);border-color:var(--inchiostro)}
+@media(max-width:560px){.card{padding:24px 18px;border-radius:18px}}
+
+.pill{display:inline-block;background:var(--menta);color:var(--inchiostro);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:100px}
+.titolo{font-weight:700;font-size:clamp(26px,5.2vw,38px);line-height:1.12;letter-spacing:-.01em;margin:18px 0 14px}
+.titolo .punto{color:var(--menta)}
+.card:not(.scura) .titolo .punto{color:var(--menta-bordo)}
+.testo-intro{font-size:17px;color:rgba(255,255,255,.82);margin-bottom:22px}
+.card:not(.scura) .testo-intro{color:var(--grigio)}
+.punti{list-style:none;margin:0 0 26px;display:grid;gap:10px}
+.punti li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.punti li::before{content:"";flex:0 0 10px;height:10px;margin-top:7px;border-radius:50%;background:var(--menta)}
+.lingua{float:right;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 4px;min-height:44px;color:inherit}
+
+/* Pulsanti */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 26px;border-radius:14px;font-weight:700;font-size:19px;text-align:center;transition:transform .12s ease,filter .12s ease,background .12s ease}
+.btn.pri{background:var(--arancio);color:var(--bianco);width:100%}
+.btn.pri:hover{filter:brightness(1.06)}
+.btn.pri:active{transform:scale(.99)}
+.btn.pri:disabled{background:var(--linea);color:var(--grigio);cursor:not-allowed;filter:none}
+.btn.sec{background:transparent;color:var(--inchiostro);border:1.5px solid var(--linea);font-size:16px;min-height:54px}
+.btn.sec:hover{border-color:var(--inchiostro)}
+.card.scura .btn.sec{color:var(--bianco);border-color:rgba(255,255,255,.35)}
+.card.scura .btn.sec:hover{border-color:var(--bianco)}
+.btn.link{background:none;min-height:44px;padding:8px 4px;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:3px;width:100%;color:inherit}
+:focus-visible{outline:3px solid var(--blu);outline-offset:3px}
+.pila{display:grid;gap:12px}
+.nota{font-size:14px;color:var(--grigio);margin-top:10px}
+.card.scura .nota{color:rgba(255,255,255,.65)}
+
+/* Testata della domanda */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.num{font-size:13px;font-weight:700;color:var(--grigio);letter-spacing:.04em;text-transform:uppercase}
+.barra{height:6px;background:var(--menta-chiaro);border-radius:6px;overflow:hidden;margin-bottom:22px}
+.barra > div{height:100%;background:var(--blu);border-radius:6px;transition:width .35s ease}
+.consegna{font-size:15px;color:var(--grigio);margin-bottom:14px}
+.brano{background:var(--crema);border-left:4px solid var(--menta-bordo);border-radius:0 14px 14px 0;padding:16px 18px;font-size:17px;line-height:1.6;margin-bottom:18px}
+.dom{font-weight:700;font-size:clamp(20px,3.6vw,24px);line-height:1.3;margin-bottom:18px}
+.vuoto{display:inline-block;min-width:64px;border-bottom:3px solid var(--blu);margin:0 4px;transform:translateY(-3px)}
+
+/* Scelta multipla */
+.opzioni{display:grid;gap:10px}
+.opt{display:block;width:100%;min-height:54px;padding:14px 16px;border:1.5px solid var(--linea);border-radius:14px;background:var(--bianco);font-size:17px;font-weight:500;transition:border-color .12s ease,background .12s ease}
+.opt:hover{border-color:var(--blu)}
+.opt.sel{border-color:var(--blu);background:var(--menta-chiaro);box-shadow:0 0 0 1px var(--blu)}
+
+/* Riordino e dettato a tessere */
+.frase-etichetta{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grigio);margin-bottom:8px}
+.frase{min-height:66px;border:2px dashed var(--menta-bordo);border-radius:14px;background:var(--menta-chiaro);padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.frase .segnaposto{color:var(--grigio);font-size:15px;padding:0 6px}
+.banca{display:flex;flex-wrap:wrap;gap:8px}
+.tessera{min-height:48px;padding:10px 16px;border:1.5px solid var(--linea);border-radius:12px;background:var(--bianco);font-size:17px;font-weight:500;text-align:center}
+.tessera:hover{border-color:var(--blu)}
+.frase .tessera{border-color:var(--blu)}
+.tessera.usata{visibility:hidden}
+
+/* Abbinamento */
+.abbina{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:10px;align-items:stretch}
+.abbina .col{display:grid;gap:10px}
+.voce{position:relative;min-height:60px;padding:12px 14px 12px 42px;border:1.5px solid var(--linea);border-radius:14px;background:var(--bianco);font-size:16px;font-weight:500;line-height:1.3;display:flex;align-items:center;width:100%}
+.voce::before{content:"";position:absolute;left:12px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;border:1.5px solid var(--linea);background:var(--bianco)}
+.voce:hover{border-color:var(--blu)}
+.voce.attiva{border-color:var(--blu);box-shadow:0 0 0 1px var(--blu)}
+.voce.c1,.voce.c2,.voce.c3{background:var(--menta-chiaro);border-color:var(--menta-bordo)}
+.voce.c1::before,.voce.c2::before,.voce.c3::before{border:none;background:var(--blu);color:var(--bianco);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.voce.c1::before{content:"1"} .voce.c2::before{content:"2"} .voce.c3::before{content:"3"}
+@media(max-width:480px){.voce{font-size:15px;padding-left:38px}}
+
+/* Player audio */
+.player{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--menta-chiaro);border:1px solid var(--menta-bordo);border-radius:16px;padding:14px 16px;margin-bottom:18px}
+.card.scura .player{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.play{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:10px 20px 10px 14px;border-radius:100px;background:var(--blu);color:var(--bianco);font-weight:700;font-size:17px}
+.play::before{content:"";width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--bianco);margin-left:6px}
+.play:disabled{background:var(--linea);color:var(--grigio);cursor:not-allowed}
+.play:disabled::before{border-left-color:var(--grigio)}
+.play.suona::before{width:14px;height:16px;border:none;border-left:5px solid var(--bianco);border-right:5px solid var(--bianco);margin-left:4px;animation:batte 1s ease-in-out infinite}
+@keyframes batte{50%{opacity:.4}}
+.rest{font-size:14px;color:var(--grigio);font-weight:700}
+.card.scura .rest{color:rgba(255,255,255,.7)}
+.player-err{flex-basis:100%;font-size:15px}
+.player-err .riga{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.player-err .btn{min-height:46px;font-size:15px;padding:10px 16px;width:auto}
+
+.azioni{display:grid;grid-template-columns:auto 1fr;gap:12px;margin-top:24px}
+@media(max-width:420px){.azioni{grid-template-columns:1fr}.azioni .btn.sec{order:2}}
+
+/* Risultato */
+.livello{display:flex;align-items:center;gap:18px;margin:18px 0 14px}
+.badge{flex:0 0 auto;width:96px;height:96px;border-radius:50%;background:var(--menta);color:var(--inchiostro);font-weight:700;font-size:38px;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em}
+.livello .titolo{margin:0}
+.descr{font-size:17px;color:rgba(255,255,255,.85)}
+.card + .card{margin-top:16px}
+.sotto{font-weight:700;font-size:21px;line-height:1.25;margin-bottom:8px}
+.campo{display:block;margin-top:14px}
+.campo span{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.campo input{width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--linea);border-radius:12px;font-size:17px;background:var(--bianco)}
+.campo input:focus{outline:none;border-color:var(--blu);box-shadow:0 0 0 1px var(--blu)}
+.consenso{display:flex;gap:12px;align-items:flex-start;margin:18px 0;font-size:14px;color:var(--grigio);line-height:1.45;cursor:pointer}
+.consenso input{flex:0 0 22px;width:22px;height:22px;margin-top:1px;accent-color:var(--blu)}
+.consenso a{color:var(--inchiostro);font-weight:700}
+.trappola{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.errore{color:#B3261E;font-size:14px;font-weight:700;margin-top:10px}
+
+.righe{display:grid;gap:14px;margin:18px 0}
+.riga-ab{display:grid;grid-template-columns:110px 1fr 124px;gap:12px;align-items:center;font-size:15px}
+.riga-ab b{font-weight:700}
+.misura{height:10px;border-radius:10px;background:var(--menta-chiaro);overflow:hidden}
+.misura > div{height:100%;border-radius:10px;background:var(--blu)}
+.fascia{text-align:right;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--grigio);white-space:nowrap}
+@media(max-width:480px){.riga-ab{grid-template-columns:86px 1fr}.fascia{grid-column:1 / -1;margin-top:-8px;text-align:left}}
+.riquadro{background:var(--crema);border-radius:14px;padding:16px 18px;font-size:16px}
+.riquadro .frase-etichetta{margin-bottom:6px}
+.avviso{background:var(--crema);border:1px dashed var(--grigio);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:16px}
+
+@media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
