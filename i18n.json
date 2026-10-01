@@ -12,14 +12,12 @@
     "riprendi_testo": "You started this test earlier. Do you want to continue from where you stopped?",
     "riprendi": "Continue",
     "ricomincia": "Start again",
-
     "audio_pill": "Sound check",
     "audio_titolo": "Can you hear the audio?",
     "audio_testo": "Some questions ask you to listen to a short recording. Press play and check your volume.",
     "audio_si": "I can hear it",
     "audio_no": "I can't listen right now",
     "audio_no_nota": "No problem: you will take the test without the listening questions.",
-
     "domanda": "Question",
     "avanti": "Next",
     "non_lo_so": "I don't know",
@@ -44,7 +42,6 @@
     "audio_errore": "The audio didn't start.",
     "riprova": "Try again",
     "salta_ascolto": "Skip listening",
-
     "ris_pill": "Your result",
     "ris_titolo": "Your level is {livello}",
     "liv_A1": "You are taking your first steps in Italian. You understand everyday words and very simple sentences. The next step is building the basics: essential vocabulary and the most common verbs.",
@@ -53,7 +50,6 @@
     "liv_B2": "You have a good command of Italian and can follow complex conversations. The way to C1 goes through the subjunctive, the conditional and more elaborate structures.",
     "liv_C1": "Your Italian is advanced: you know complex structures and express yourself fluently. The focus now is on nuance: formal and informal register, idioms and precision of style.",
     "liv_C2": "You have full command of Italian, including rare vocabulary and complex structures. At this level the goal is to maintain and refine: literature, formal registers, the finest shades of meaning.",
-
     "gate_titolo": "Get your skills profile and exercises for your level",
     "gate_testo": "I'll email you your results in the four skills and a set of free exercises for level {livello}, starting from the skill you need most.",
     "nome": "First name",
@@ -65,7 +61,6 @@
     "err_email": "Please enter a valid email address.",
     "err_consenso": "Please tick the box to receive the exercises.",
     "err_rete": "We couldn't send your result. Check your connection: we'll try again automatically while this page stays open.",
-
     "prof_pill": "Your skills profile",
     "prof_titolo": "Level {livello}: check your email",
     "prof_testo": "I've sent your exercises to {email}. If you don't see the email in a few minutes, check your spam folder.",
@@ -76,7 +71,19 @@
     "fascia_in_linea": "On track",
     "fascia_da_rinforzare": "To strengthen",
     "fascia_saltato": "Not tested",
-    "prova_nota": "Test mode: no webhook is set, so nothing was sent. The data is in the browser console."
+    "prova_nota": "Test mode: no webhook is set, so nothing was sent. The data is in the browser console.",
+    "cor_pill": "Your answers",
+    "cor_titolo": "Questions to review",
+    "cor_testo": "You got {ok} out of {tot} questions right. Below are the others, with the correct answer.",
+    "cor_nessuna": "You got all {tot} questions right: there is nothing to review.",
+    "cor_tua": "Your answer",
+    "cor_giusta": "Correct answer",
+    "cor_frase": "Correct sentence",
+    "cor_coppie": "Correct pairs",
+    "cor_trascrizione": "Transcript",
+    "cor_livello": "Level {l}",
+    "cor_rifai": "Take the test again",
+    "prova_link": "Open the corrections page (the one linked in the email)."
   },
   "it": {
     "lingua_altro": "English",
@@ -90,14 +97,12 @@
     "riprendi_testo": "Hai già iniziato questo test. Vuoi continuare da dove ti sei fermato?",
     "riprendi": "Continua",
     "ricomincia": "Ricomincia",
-
     "audio_pill": "Prova audio",
     "audio_titolo": "Senti bene l'audio?",
     "audio_testo": "Alcune domande ti chiedono di ascoltare una breve registrazione. Premi play e controlla il volume.",
     "audio_si": "Sento bene",
     "audio_no": "Non posso ascoltare ora",
     "audio_no_nota": "Nessun problema: fai il test senza le domande di ascolto.",
-
     "domanda": "Domanda",
     "avanti": "Avanti",
     "non_lo_so": "Non lo so",
@@ -122,7 +127,6 @@
     "audio_errore": "L'audio non è partito.",
     "riprova": "Riprova",
     "salta_ascolto": "Salta l'ascolto",
-
     "ris_pill": "Il tuo risultato",
     "ris_titolo": "Il tuo livello è {livello}",
     "liv_A1": "Stai muovendo i primi passi in italiano. Capisci parole di uso quotidiano e frasi molto semplici. Il prossimo passo è costruire le basi: il vocabolario essenziale e i verbi più comuni.",
@@ -131,7 +135,6 @@
     "liv_B2": "Hai una buona padronanza dell'italiano e segui conversazioni complesse. La strada verso il C1 passa dal congiuntivo, dal condizionale e dalle strutture più elaborate.",
     "liv_C1": "Il tuo italiano è avanzato: conosci le strutture complesse e ti esprimi con fluidità. Ora il lavoro è sulle sfumature: registro formale e informale, espressioni idiomatiche, precisione dello stile.",
     "liv_C2": "Hai una piena padronanza dell'italiano, compresi il lessico raro e le strutture complesse. A questo livello l'obiettivo è mantenere e affinare: letteratura, registri formali, le sfumature più sottili.",
-
     "gate_titolo": "Ricevi il profilo delle tue abilità e gli esercizi per il tuo livello",
     "gate_testo": "Ti mando per email il risultato nelle quattro abilità e una serie di esercizi gratuiti di livello {livello}, a partire dall'abilità che ti serve di più.",
     "nome": "Nome",
@@ -143,7 +146,6 @@
     "err_email": "Scrivi un indirizzo email valido.",
     "err_consenso": "Spunta la casella per ricevere gli esercizi.",
     "err_rete": "Non siamo riusciti a inviare il risultato. Controlla la connessione: riproviamo da soli finché questa pagina resta aperta.",
-
     "prof_pill": "Il profilo delle tue abilità",
     "prof_titolo": "Livello {livello}: controlla la tua email",
     "prof_testo": "Ho mandato gli esercizi a {email}. Se non vedi l'email entro qualche minuto, guarda nella cartella spam.",
@@ -154,6 +156,18 @@
     "fascia_in_linea": "In linea",
     "fascia_da_rinforzare": "Da rinforzare",
     "fascia_saltato": "Non valutato",
-    "prova_nota": "Modalità prova: il webhook non è impostato, quindi non è partito nulla. I dati sono nella console del browser."
+    "prova_nota": "Modalità prova: il webhook non è impostato, quindi non è partito nulla. I dati sono nella console del browser.",
+    "cor_pill": "Le tue risposte",
+    "cor_titolo": "Le domande da rivedere",
+    "cor_testo": "Hai risposto bene a {ok} domande su {tot}. Qui sotto trovi le altre, con la risposta giusta.",
+    "cor_nessuna": "Hai risposto bene a tutte le {tot} domande: non c'è niente da rivedere.",
+    "cor_tua": "La tua risposta",
+    "cor_giusta": "Risposta giusta",
+    "cor_frase": "Frase giusta",
+    "cor_coppie": "Abbinamenti giusti",
+    "cor_trascrizione": "Trascrizione",
+    "cor_livello": "Livello {l}",
+    "cor_rifai": "Rifai il test",
+    "prova_link": "Apri la pagina delle correzioni (quella del link nell'email)."
   }
 }

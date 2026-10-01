@@ -141,4 +141,17 @@ button{cursor:pointer;border:none;background:none;text-align:left}
 .riquadro .frase-etichetta{margin-bottom:6px}
 .avviso{background:var(--crema);border:1px dashed var(--grigio);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:16px}
 
+/* Correzioni */
+.esito{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:baseline;padding:10px 14px;border-radius:12px;margin-top:8px;font-size:16px}
+.esito span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--grigio)}
+.esito b{font-weight:700}
+.esito.si{background:var(--menta-chiaro);border:1px solid var(--menta-bordo)}
+.esito.no,.esito.nls{background:var(--bianco);border:1px solid var(--linea)}
+.esito.nls b{font-weight:500;color:var(--grigio)}
+.esito.no b{font-weight:500;text-decoration:line-through;text-decoration-color:var(--grigio);color:var(--grigio)}
+.brano p + p{margin-top:6px}
+.spiega{margin-top:12px;font-size:15px;color:var(--grigio)}
+.avviso a{color:var(--inchiostro);font-weight:700}
+@media(max-width:480px){.esito{grid-template-columns:1fr;gap:2px}}
+
 @media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}

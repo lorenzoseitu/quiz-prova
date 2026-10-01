@@ -86,7 +86,7 @@
     }
 
     /* ---------- audio ---------- */
-    var cache = {}, suona = null, attesa = null;
+    var cache = {}, suona = null, suonaP = null, attesa = null;
     function urlAudio(id) { var f = D.audio[id].file; return CFG.audio_urls[f] || (CFG.audio_base + f); }
     function audio(id) {
       if (!cache[id]) { cache[id] = new Audio(); cache[id].preload = 'auto'; cache[id].src = urlAudio(id); }
@@ -95,7 +95,7 @@
     function precarica(ids) { ids.forEach(function (id) { try { audio(id).load(); } catch (e) {} }); }
     function fermaAudio() {
       clearTimeout(attesa);
-      if (suona) { try { cache[suona].pause(); } catch (e) {} suona = null; }
+      if (suona) { try { cache[suona].pause(); } catch (e) {} suona = null; suonaP = null; }
     }
     function htmlPlayer(id, limitato) {
       return '<div class="player" data-audio="' + id + '" data-limitato="' + (limitato ? 1 : 0) + '">' +
@@ -104,33 +104,35 @@
         '<button type="button" class="btn sec" data-act="play">' + esc(T('riprova')) + '</button>' +
         '<button type="button" class="btn sec" data-act="salta-ascolto">' + esc(T('salta_ascolto')) + '</button></div></div></div>';
     }
-    function aggiornaPlayer(errore) {
-      var p = el.querySelector('.player'); if (!p) return;
+    function aggiornaPlayer(errore, p) {
+      p = p || el.querySelector('.player'); if (!p) return;
+      var attivo = suonaP === p;
       var id = p.getAttribute('data-audio'), lim = p.getAttribute('data-limitato') === '1';
       var usati = S.ascolti[id] || 0, restano = MAX_ASCOLTI - usati;
       var b = p.querySelector('.play'), r = p.querySelector('.rest');
-      b.className = 'play' + (suona ? ' suona' : '');
-      b.textContent = suona ? T('in_ascolto') : (usati ? T('ascolta_ancora') : T('ascolta'));
-      b.disabled = !!suona || (lim && restano <= 0);
+      b.className = 'play' + (attivo ? ' suona' : '');
+      b.textContent = attivo ? T('in_ascolto') : (usati ? T('ascolta_ancora') : T('ascolta'));
+      b.disabled = attivo || (lim && restano <= 0);
       r.textContent = !lim ? '' : restano <= 0 ? T('ascolti_0') : restano === 1 ? T('ascolti_1') : T('ascolti_n', { n: restano });
       p.querySelector('.player-err').hidden = !errore;
     }
-    function play() {
-      var p = el.querySelector('.player'); if (!p || suona) return;
+    function play(p) {
+      if (!p || suonaP === p) return;
+      if (suonaP) { var prima = suonaP; fermaAudio(); aggiornaPlayer(false, prima); }
       var id = p.getAttribute('data-audio'), lim = p.getAttribute('data-limitato') === '1';
       if (lim && (S.ascolti[id] || 0) >= MAX_ASCOLTI) return;
       var a = audio(id), partito = false;
       var ko = function () {
-        if (suona !== id) return;
+        if (suonaP !== p) return;
         clearTimeout(attesa); try { a.pause(); } catch (e) {}
-        suona = null; S.audioErrore = true; aggiornaPlayer(true);
+        suona = null; suonaP = null; S.audioErrore = true; aggiornaPlayer(true, p);
       };
-      suona = id; aggiornaPlayer(false);
+      suona = id; suonaP = p; aggiornaPlayer(false, p);
       a.onplaying = function () {
         if (partito) return; partito = true; clearTimeout(attesa);
-        if (lim) { S.ascolti[id] = (S.ascolti[id] || 0) + 1; salva(); aggiornaPlayer(false); }
+        if (lim) { S.ascolti[id] = (S.ascolti[id] || 0) + 1; salva(); aggiornaPlayer(false, p); }
       };
-      a.onended = function () { if (suona === id) { suona = null; aggiornaPlayer(false); } };
+      a.onended = function () { if (suonaP === p) { suona = null; suonaP = null; aggiornaPlayer(false, p); } };
       a.onerror = ko;
       attesa = setTimeout(function () { if (!partito) ko(); }, ATTESA_AUDIO_MS);
       try { a.currentTime = 0; } catch (e) {}
@@ -241,7 +243,7 @@
     }
     function registra(nls) {
       var it = corrente();
-      S.risposte[it.id] = { ok: (!nls && giusta(it)) ? 1 : 0, nls: nls ? 1 : 0 };
+      S.risposte[it.id] = { ok: (!nls && giusta(it)) ? 1 : 0, nls: nls ? 1 : 0, s: (!nls && it.tipo === 'scelta') ? U.sel : null };
       S.ordine.push(it.id);
       S.pos++;
       avanza();
@@ -315,7 +317,62 @@
         '<p class="consegna">' + esc(T('prof_testo', { email: S.contatto.email })) + '</p>' +
         '<div class="righe">' + righe + '</div>' +
         '<div class="riquadro"><p class="frase-etichetta">' + esc(T('prof_partenza')) + '</p><p>' + partenza + '</p></div>' +
-        (CFG.webhook ? '' : '<p class="avviso">' + esc(T('prova_nota')) + '</p>') + '</div>');
+        (CFG.webhook ? '' : '<p class="avviso">' + esc(T('prova_nota')) + ' <a href="?r=' + encodeURIComponent(codice()) + '&amp;lang=' + S.lang + '">' + esc(T('prova_link')) + '</a></p>') + '</div>');
+    }
+
+    /* ---------- correzioni ---------- */
+    // Codice compatto delle risposte, fatto solo di caratteri che passano interi in un link:
+    //   R1.1_B1-G1.c_B1-A1.n_B1-G2.0   → 1 giusta · n "non lo so" · a-d opzione scelta (sbagliata) · 0 sbagliata
+    // È il campo "risposte" mandato a GHL. L'email lo rimette nel link ?r=… e la pagina mostra
+    // le domande sbagliate con la risposta giusta. Niente testo libero: si accettano solo id e
+    // valori conosciuti, il resto si scarta.
+    function codice() {
+      return S.ordine.map(function (id) {
+        var r = S.risposte[id];
+        return id + '.' + (r.ok ? '1' : r.nls ? 'n' : (typeof r.s === 'number' ? 'abcd'.charAt(r.s) : '0'));
+      }).join('_');
+    }
+    function leggiCodice(testo) {
+      var visti = {}, out = [];
+      String(testo || '').slice(0, 1200).split('_').forEach(function (t) {
+        var i = t.lastIndexOf('.'), id = t.slice(0, i), v = t.slice(i + 1);
+        if (i < 1 || !items[id] || visti[id] || !/^[1n0abcd]$/.test(v)) return;
+        visti[id] = 1; out.push({ it: items[id], v: v });
+      });
+      return out;
+    }
+    function vistaCorrezioni(lista) {
+      var sbagliate = lista.filter(function (x) { return x.v !== '1'; }), testi = {};
+      var h = '<div class="card scura"><span class="pill">' + esc(T('cor_pill')) + '</span>' +
+        '<h1 class="titolo">' + titolo(T('cor_titolo')) + '</h1><p class="descr">' +
+        esc(T(sbagliate.length ? 'cor_testo' : 'cor_nessuna', { ok: lista.length - sbagliate.length, tot: lista.length })) + '</p></div>';
+      sbagliate.forEach(function (x) {
+        var it = x.it, riga = function (k, v, cls) { return '<div class="esito ' + cls + '"><span lang="' + S.lang + '">' + esc(T(k)) + '</span><b>' + v + '</b></div>'; };
+        h += '<div class="card"><div class="top"><span class="pill">' + esc(T('ab_' + it.abilita)) + '</span>' +
+          '<span class="num">' + esc(T('cor_livello', { l: it.livello })) + '</span></div><div lang="it">';
+        if (it.testo && !testi[it.testo]) { testi[it.testo] = 1; h += '<div class="brano">' + esc(D.testi[it.testo]) + '</div>'; }
+        if (it.audio) {
+          h += htmlPlayer(it.audio, false);
+          if (D.audio[it.audio].copione) h += '<div class="brano"><p class="frase-etichetta" lang="' + S.lang + '">' + esc(T('cor_trascrizione')) + '</p>' +
+            D.audio[it.audio].copione.map(function (b) { return '<p>' + (D.audio[it.audio].copione.length > 1 ? '— ' : '') + esc(b.testo) + '</p>'; }).join('') + '</div>';
+        }
+        if (it.domanda) h += '<h2 class="dom">' + esc(it.domanda).replace(/_{3,}/g, '<span class="vuoto"></span>') + '</h2>';
+        if (x.v === 'n') h += riga('cor_tua', esc(T('non_lo_so')), 'nls');
+        if (it.tipo === 'scelta') {
+          if (/[abcd]/.test(x.v)) h += riga('cor_tua', esc(it.opzioni['abcd'.indexOf(x.v)]), 'no');
+          h += riga('cor_giusta', esc(it.opzioni[it.corretta]), 'si');
+        } else if (it.tipo === 'riordino') {
+          h += riga('cor_frase', esc(it.frase || it.soluzione.join(' ')), 'si');
+        } else {
+          h += riga('cor_coppie', it.coppie.map(function (c) { return esc(c[0]) + ' → ' + esc(c[1]); }).join('<br>'), 'si');
+        }
+        h += '</div>';
+        if (it.spiegazione && it.spiegazione[S.lang]) h += '<p class="spiega">' + esc(it.spiegazione[S.lang]) + '</p>';
+        h += '</div>';
+      });
+      h += '<div class="card"><button type="button" class="btn pri" data-act="inizia">' + esc(T('cor_rifai')) + '</button></div>';
+      mostra(h);
+      Array.prototype.forEach.call(el.querySelectorAll('.player'), function (p) { aggiornaPlayer(false, p); });
     }
 
     /* ---------- invio a GHL ---------- */
@@ -347,7 +404,8 @@
         blocchi: S.blocchi.map(function (b) { return b.livello + ':' + b.corrette + '/' + b.totale; }).join(';'),
         domande_viste: S.ordine.length,
         risposte_corrette: S.ordine.filter(function (id) { return S.risposte[id].ok; }).length,
-        risposte: S.ordine.map(function (id) { return id + ':' + (S.risposte[id].nls ? 'n' : S.risposte[id].ok); }).join(';'),
+        risposte_sbagliate: S.ordine.filter(function (id) { return !S.risposte[id].ok; }).length,
+        risposte: codice(),
         durata_secondi: R.durata,
         utm_source: q.utm_source || '', utm_medium: q.utm_medium || '', utm_campaign: q.utm_campaign || '',
         utm_content: q.utm_content || '', utm_term: q.utm_term || '',
@@ -436,7 +494,7 @@
       }
       else if (act === 'audio-si') parti(true);
       else if (act === 'audio-no') parti(false);
-      else if (act === 'play') play();
+      else if (act === 'play') play(b.closest('.player'));
       else if (act === 'salta-ascolto') { fermaAudio(); if (S.fase === 'audio') parti(false); else saltaAscolto(); }
       else if (act === 'opt') { U.sel = i; corpo(); }
       else if (act === 'metti') { if (U.scelte.indexOf(k) < 0) U.scelte.push(k); corpo(); }
@@ -456,7 +514,10 @@
     });
     sr.addEventListener('submit', function (e) { e.preventDefault(); invia(e.target); });
 
-    vistaIntro();
+    var rev = opt.revisione;
+    if (!rev) { try { rev = new URLSearchParams(location.search).get('r'); } catch (e) {} }
+    var lista = rev ? leggiCodice(rev) : [];
+    if (lista.length) vistaCorrezioni(lista); else vistaIntro();
     return { stato: function () { return S; } };
   }
 
